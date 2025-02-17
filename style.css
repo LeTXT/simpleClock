@@ -1,6 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Digital-7&display=swap');
 
+:root {
+    --bg-color-dark: black;
+    --font-primary-dark: #E5E5E5;
+    --font-secundary-dark: #FCA311;
+
+    --bg-color-light: white;
+    --font-secundary-light: black;
+    --font-secundary-light: blue;
+
+}
+
 * {
     font-family: "Orbitron", serif;
     font-optical-sizing: auto;
@@ -30,12 +41,45 @@ body {
 .container {
     width: 100%;
     max-width: 393px;
+
+    height: auto;
     max-height: 393px;
+    aspect-ratio: 1/1;
 
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     padding: 0 30px;
+
+    transition: 1s;
+}
+
+p {
+    padding: 0;
+    margin: 0;
+
+    font-size: 1.5rem;
+}
+
+h1 {
+    font-size: clamp(2rem, 96px, 7rem);
+
+    width: auto;
+
+    padding: 0;
+    margin: 0;
+
+    font-weight: 400;
+}
+
+.bg-dark {
+    background-color: var(--bg-color-dark);
+    color: var(--font-primary-dark);
+}
+.bg-dark p {
+    color: var(--font-secundary-dark);
 }
 
 .data-secunds {
@@ -43,9 +87,11 @@ body {
     display: flex;
     justify-content: space-between;
 }
-
-p {
-    color: #FCA311;
+.data-secunds p:first-child {
+    animation: translateToRight 1s ease-in forwards;
+}
+.data-secunds p:last-child {
+    animation: traslateToLeft 1s ease-in forwards;
 }
 
 .hours {
@@ -54,13 +100,8 @@ p {
     display: flex;
     justify-content: center;
 }
-
-h1 {
-    font-size: clamp(2rem, 96px, 7rem);
-
-    width: auto;
-
-    font-weight: 400;
+.hours h1 {
+    animation: opacity 1s ease-in forwards;
 }
 
 .temperature {
@@ -68,4 +109,36 @@ h1 {
 
     display: flex;
     justify-content: end;
+}
+.temperature p {
+    animation: traslateToLeft 1s ease-in forwards;
+}
+
+@keyframes translateToRight {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translate(0);
+        opacity: 100%;
+    }
+}
+@keyframes traslateToLeft {
+    from {
+        transform: translate(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translate(0);
+        opacity: 100%;
+    }
+}
+@keyframes opacity {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100%;
+    }
 }
