@@ -6,9 +6,9 @@
     --font-primary-dark: #E5E5E5;
     --font-secundary-dark: #FCA311;
 
-    --bg-color-light: white;
+    --bg-color-light: #E5E5E5;
     --font-secundary-light: black;
-    --font-secundary-light: blue;
+    --font-secundary-light: #8F1A00;
 
 }
 
@@ -82,10 +82,20 @@ h1 {
     color: var(--font-secundary-dark);
 }
 
+.bg-light {
+    background-color: var(--bg-color-light);
+    color: var(--font-primary-light);
+}
+.bg-light p {
+    color: var(--font-secundary-light);
+}
+
 .data-secunds {
     width: 100%;
     display: flex;
     justify-content: space-between;
+
+    transform: translateY(20px);
 }
 .data-secunds p:first-child {
     animation: translateToRight 1s ease-in forwards;
@@ -99,6 +109,9 @@ h1 {
 
     display: flex;
     justify-content: center;
+
+    margin: 0;
+    padding: 0;
 }
 .hours h1 {
     animation: opacity 1s ease-in forwards;
@@ -109,6 +122,8 @@ h1 {
 
     display: flex;
     justify-content: end;
+
+    transform: translateY(-20px);
 }
 .temperature p {
     animation: traslateToLeft 1s ease-in forwards;

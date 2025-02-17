@@ -6,19 +6,21 @@
     <title>Relógio</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="container bg-dark">
+<body id="body" class=" bg-dark">
+    <div class="container" id="container">
         <div class="data-secunds">
-            <p>Domingo 16</p>
-            <p>46</p>
+            <p id="day">Domingo 16</p>
+            <p id="sec">00</p>
         </div>
         <div class="hours">
-            <h1 id="timer">23:23</h1>
+            <h1 id="timer">00:00</h1>
         </div>
         <div class="temperature">
-            <p>32°C</p>
+            <p id="degrees">32°C</p>
         </div>
     </div>
+    <script src="temperature.js"></script>
     <script src="script.js"></script>
+    <script src="changeColor.js"></script>
 </body>
 </html>

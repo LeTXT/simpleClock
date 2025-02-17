@@ -1,6 +1,21 @@
-const timer = document.querySelector('#timer')
+let timer = document.querySelector('#timer')
+let sec = document.querySelector('#sec')
+let day = document.querySelector('#day')
 
-let data = new Date()
-console.log(Date)
+const ArrayDay = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
 
-timer.innerText = data.getHours()
+const formatTimer = (time) => time < 10 ? `0${time}` : time  
+
+const clock = () => {
+    let data = new Date()
+    let option = { hour: '2-digit', minute: '2-digit'}
+    data.toLocaleDateString('pt-BR', option)
+
+    timer.innerText = `${formatTimer(data.getHours())}:${formatTimer(data.getMinutes())}`
+
+    sec.innerText = formatTimer(data.getSeconds())
+
+    day.innerHTML = `${ArrayDay[data.getDay()]} ${formatTimer(data.getDate())}`
+}
+
+setInterval(clock, 500)
